@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "chart.js": "^4.4.8",
+    "colors": "^1.4.0",
     "concurrently": "^8.0.1",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.22",
