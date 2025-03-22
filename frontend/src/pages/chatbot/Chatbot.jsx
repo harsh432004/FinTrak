@@ -28,10 +28,10 @@ function Chatbot() {
     // Clear input and set loading state
     setInput("");
     setIsLoading(true);
-    
+  
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB9R0msE8nXyCWNLBiJebp8mQ5ptyqRfyY",
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=AIzaSyBsBXS25UzThHdHusy7ReqwuTrOZkMKNGc",
         method: "post",
         data: {
           "contents": [{
