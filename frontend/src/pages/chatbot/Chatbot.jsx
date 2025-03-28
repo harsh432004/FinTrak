@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import './Chatbot.scss';
+import.meta.env
 
 function Chatbot() {
   const [input, setInput] = useState("");
@@ -31,7 +32,7 @@ function Chatbot() {
   
     try {
       const response = await axios({
-        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=AIzaSyBsBXS25UzThHdHusy7ReqwuTrOZkMKNGc",
+        url: import.meta.env.VITE_CHATBOT_URL,
         method: "post",
         data: {
           "contents": [{
