@@ -1,12 +1,9 @@
 {
-    "version": 2,
-    "builds": [
-        {"src": "*.js", "use": "@vercel/node"}
-    ],
-    "routes":[
-        {
-            "backend" : "/(.*)",
-            "dest": "/"
-        }
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://fintrak.vercel.app/api/:path*"
+      }
     ]
-}
+  }
+  
