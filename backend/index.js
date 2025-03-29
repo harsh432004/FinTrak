@@ -11,7 +11,12 @@ const fileUpload = require('express-fileupload')
 connectDB()
 
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: ["https://fintrack-frontend.vercel.app", "http://localhost:5173"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
+
 app.options('*', cors())
 // Enable CORS
 app.use(
