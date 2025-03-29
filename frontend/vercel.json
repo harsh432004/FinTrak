@@ -1,0 +1,16 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://fin-trak-backend.vercel.app/api/:path*"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/index.html",
+        "statusCode": 200
+      }
+    ]
+  }
+  
