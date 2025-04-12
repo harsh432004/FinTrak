@@ -16,8 +16,7 @@ const initialState = {
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
     return await authService.login(user)
-  } catch (error) {
-    console.log(error)
+  } catch(error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
@@ -33,7 +32,6 @@ export const register = createAsyncThunk(
     try {
       return await authService.register(user)
     } catch (err) {
-      console.log(err)
       const message =
         (err.response && err.response.data && err.response.data.message) ||
         err.message ||
@@ -48,7 +46,10 @@ export const getusers = createAsyncThunk(
   'auth/getAllUsers',
   async (__, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
+      const token = thunkAPI.getState().auth.user?.token
+      if (!token) {
+        return thunkAPI.rejectWithValue('No token found')
+      }
       return await authService.getAllUsers(token)
     } catch (error) {
       const message =
@@ -121,10 +122,15 @@ export const authSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.message = action.payload
-        state.users = null
+        state.users = []
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null
+        state.users = []
+        state.isLoading = false
+        state.isError = false
+        state.isSuccess = false
+        state.message = ''
       })
   },
 })
